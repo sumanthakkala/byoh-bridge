@@ -87,6 +87,36 @@ from byoh_bridge.alembic_support import run_env
 run_env(APP_CONFIG)
 ```
 
+## Loading a plugin into Hermes (today's gotcha)
+
+Hermes (≤ 0.15.x) discovers plugins as **flat directories** and loads each
+plugin's **root `__init__.py` by path**, calling `register(ctx)`. It does **not**
+`pip install` the plugin or its dependencies. That clashes with the clean,
+distributable shape this framework encourages — a **src-layout pip package**
+using absolute imports (`from byoh_bridge import …`, an `AppConfig.models_package`
+like `"my_app.storage.models"`). A bare clone therefore won't run: Hermes finds
+no `register()` at the directory root, and neither your package nor `byoh-bridge`
+is importable in Hermes's venv.
+
+Until Hermes supports installed-package / entry-point plugin discovery (tracked
+in `docs/byoh/03-HERMES-GAPS.md`), reconcile it two ways:
+
+1. **A root `__init__.py` shim** committed at your plugin repo root — Hermes loads
+   this by path and it delegates to your real package:
+   ```python
+   # <plugin-repo>/__init__.py
+   from my_app import APP_CONFIG, register  # noqa: F401
+   ```
+   With a `src/` layout, setuptools ignores this root file, so it never lands in
+   your wheel.
+2. **`pip install` the plugin** into Hermes's venv (so the package + `byoh-bridge`
+   + SQLAlchemy/Alembic resolve). `hermes plugins install owner/repo` only
+   *clones* — follow it with `pip install <cloned-dir>`.
+
+The reference plugin
+[`tinybeat-pregnancy`](https://github.com/sumanthakkala/tinybeat-pregnancy) does
+exactly this — its README has the copy-paste commands.
+
 ## Configuration (env overrides)
 
 | Env var | Default | Purpose |
