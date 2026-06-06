@@ -23,8 +23,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/"          # TODO: byoh-bridge repo
-Documentation = "https://github.com/"     # TODO: docs
+Homepage = "https://github.com/sumanthakkala/byoh-bridge"
+Repository = "https://github.com/sumanthakkala/byoh-bridge"
+"Reference plugin" = "https://github.com/sumanthakkala/tinybeat-pregnancy"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -106,9 +106,10 @@ cd path/to/your-plugin && alembic upgrade head
 
 ## Reference app
 
-[tinybeat](https://github.com/) — a private pregnancy companion — is the
-reference plugin built on `byoh-bridge`. See `docs/byoh/` in that project for the
-full architecture, security model, and framework-extraction story.
+[tinybeat-pregnancy](https://github.com/sumanthakkala/tinybeat-pregnancy) — the
+plugin behind a private pregnancy companion — is the reference app built on
+`byoh-bridge`: 11 workflows, domain models + migrations + safety, wired by one
+`AppConfig`. It's the worked example of everything above.
 
 ---
 
