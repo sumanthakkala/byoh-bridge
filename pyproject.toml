@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "byoh-bridge"
+version = "0.1.0"
+description = "Bring Your Own Hermes — the reusable bridge runtime for BYOA (agent-as-backend) Hermes plugins."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "tinybeat" }]
+keywords = ["hermes", "byoa", "byoh", "agent", "plugin", "local-first", "sqlite"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+dependencies = [
+  "sqlalchemy>=2.0,<3",
+  "alembic>=1.13,<2",
+  "websockets>=12",
+]
+
+[project.urls]
+Homepage = "https://github.com/"          # TODO: byoh-bridge repo
+Documentation = "https://github.com/"     # TODO: docs
+
+[tool.setuptools.packages.find]
+where = ["src"]
