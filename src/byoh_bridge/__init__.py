@@ -1,6 +1,6 @@
 """byoh-bridge — Bring Your Own Hermes.
 
-The reusable bridge runtime for BYOA ("agent-as-backend") Hermes plugins: an
+The reusable bridge runtime for BYOH ("agent-as-backend") Hermes plugins: an
 outbound relay dialer, per-session tool sandbox, autodiscovered typed-tool /
 RPC workflows, a local-SQLite storage engine with automatic change-events, and
 programmatic migrations — all driven by one :class:`AppConfig`.

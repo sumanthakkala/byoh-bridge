@@ -1,10 +1,10 @@
 # byoh-bridge — Bring Your Own Hermes
 
-> The reusable runtime for **BYOA apps** — software whose backend is the user's
+> The reusable runtime for **BYOH apps** — software whose backend is the user's
 > own local AI agent ([Hermes](https://github.com/)) and whose data never leaves
 > the user's machine. `byoh-bridge` is the plumbing; you write the domain.
 
-A traditional app is `Browser → REST API → Postgres`. A BYOA app is
+A traditional app is `Browser → REST API → Postgres`. A BYOH app is
 `Browser → dumb relay → your local Hermes agent → local SQLite`. The "API surface"
 isn't endpoints — it's **typed tools the agent calls inside scoped workflows**.
 `byoh-bridge` provides all the generic machinery to make that work:
@@ -107,7 +107,7 @@ cd path/to/your-plugin && alembic upgrade head
 ## Reference app
 
 [tinybeat](https://github.com/) — a private pregnancy companion — is the
-reference plugin built on `byoh-bridge`. See `docs/byoa/` in that project for the
+reference plugin built on `byoh-bridge`. See `docs/byoh/` in that project for the
 full architecture, security model, and framework-extraction story.
 
 ---

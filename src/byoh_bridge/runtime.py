@@ -20,7 +20,7 @@ logger = logging.getLogger("byoh_bridge")
 
 #: The framework's own hard dependencies. Declared in ``pyproject.toml`` too;
 #: probed here as a safety net for the "forgot to install" case (Hermes does not
-#: install plugin deps — see docs/byoa/03-HERMES-GAPS.md).
+#: install plugin deps — see docs/byoh/03-HERMES-GAPS.md).
 FRAMEWORK_REQUIREMENTS = ("sqlalchemy>=2.0,<3", "alembic>=1.13,<2", "websockets>=12")
 
 
