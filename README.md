@@ -25,10 +25,12 @@ isn't endpoints — it's **typed tools the agent calls inside scoped workflows**
 ## Install
 
 ```bash
-# into your Hermes venv (editable, for development):
-~/.hermes/hermes-agent/venv/bin/pip install -e path/to/byoh-bridge
-# or, once published:
+# from PyPI (the normal way):
 pip install byoh-bridge
+# …or straight into your Hermes venv:
+~/.hermes/hermes-agent/venv/bin/pip install byoh-bridge
+# …or editable, for hacking on the framework itself:
+~/.hermes/hermes-agent/venv/bin/pip install -e path/to/byoh-bridge
 ```
 
 It declares `sqlalchemy`, `alembic`, `websockets` — so installing it (or a plugin
